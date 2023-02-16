@@ -1,31 +1,29 @@
-package com.song;
-
-import java.util.Arrays;
+package com.song.fragment1;
 
 /**
- * 冒泡排序
+ * 插入排序
  */
-public class BubbleSort {
+public class InsertionSort {
     /**
      * 排序
-     *
      * @param arr
      */
-    public static void bubbleSort(int[] arr) {
+    public static void insertionSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
         }
-        for (int end = arr.length - 1; end > 0; end--) {
-            for (int i = 0; i < end; i++) {
-                if (arr[i] > arr[i + 1]) {
-                    swap(arr, i, i + 1);
-                }
+        for (int i = 1; i < arr.length; i++) { // 0 ~ i 做到有序
+            for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j--) {
+                swap(arr, j, j + 1);
             }
         }
     }
 
     /**
-     * 交换arr的i和j位置上的值
+     * i和j,数交换
+     * @param arr
+     * @param i
+     * @param j
      */
     public static void swap(int[] arr, int i, int j) {
         int tmp = arr[i];
@@ -47,12 +45,10 @@ public class BubbleSort {
         }
         System.out.println();
     }
-
     public static void main(String[] args) {
-
         int[] nums = {2, 3, 5, 9, 12, 11, 2, 6, 10, 8, 1};
         printArray(nums);
-        bubbleSort(nums);
+        insertionSort(nums);
         printArray(nums);
     }
 }

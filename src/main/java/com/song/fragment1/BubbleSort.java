@@ -1,35 +1,29 @@
-package com.song;
+package com.song.fragment1;
 
 /**
- * 选择排序
+ * 冒泡排序
  */
-public class SelectionSort {
+public class BubbleSort {
     /**
      * 排序
      *
      * @param arr
      */
-    public static void selectionSort(int[] arr) {
+    public static void bubbleSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
         }
-        for (int i = 0; i < arr.length - 1; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[minIndex]) {
-                    minIndex = j;
+        for (int end = arr.length - 1; end > 0; end--) {
+            for (int i = 0; i < end; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    swap(arr, i, i + 1);
                 }
             }
-            swap(arr, i, minIndex);
         }
     }
 
     /**
-     * 数据交换
-     *
-     * @param arr
-     * @param i
-     * @param j
+     * 交换arr的i和j位置上的值
      */
     public static void swap(int[] arr, int i, int j) {
         int tmp = arr[i];
@@ -56,8 +50,9 @@ public class SelectionSort {
 
         int[] nums = {2, 3, 5, 9, 12, 11, 2, 6, 10, 8, 1};
         printArray(nums);
-        selectionSort(nums);
+        bubbleSort(nums);
         printArray(nums);
+
 
     }
 }

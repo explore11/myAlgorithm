@@ -1,4 +1,4 @@
-package com.song;
+package com.song.fragment1;
 
 /**
  * 计算阶乘的和

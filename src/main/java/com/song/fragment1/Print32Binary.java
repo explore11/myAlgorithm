@@ -1,4 +1,4 @@
-package com.song;
+package com.song.fragment1;
 
 /**
  * 打印一个整数Int的32位二进制数
